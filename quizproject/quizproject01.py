@@ -24,7 +24,6 @@ while True:
     elif last_wish.lower().strip() == "a family":
         print("you want a family. you must be perrito")
         break
-    
     else:
         print("sorry that is not an option. try again and choose one of the following: More Lives, Someone to Trust, or A Family!")
 
