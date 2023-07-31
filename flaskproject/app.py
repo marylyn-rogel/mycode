@@ -9,9 +9,12 @@ def index():
 @app.route('/process_data', methods=['POST'])
 def process_data():
     # Implement the logic to process the data from the POST request here
-    # For simplicity, let's just store the data in a text file
+    # Store the data in a text file
     data = request.form['hiking_data']
     with open('data.txt', 'w') as f:
         f.write(data)
     return 'Data received and processed successfully!'
 
+
+if __name__ == "__main__":
+    app.run(host="127.0.0.1", port=800)
