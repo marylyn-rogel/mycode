@@ -1,0 +1,128 @@
+#!/usr/bin/env python3
+
+classinfo = {
+    "all": [
+	    {
+	        "Name": "Alex",
+	        "Spirit Animal": "Tiger",
+	        "Super Power": "Telekinesis",
+	        "Skill Level": "Phenomenal"
+	    },
+	    {
+	        "Name": "Benji",
+	        "Spirit Animal": "Bear",
+	        "Super Power": "Time Manipulation",
+	        "Skill Level": "Spectacular"
+	    },
+	    {
+	        "Name": "Cayla",
+	        "Spirit Animal": "Owl",
+	        "Super Power": "Flight",
+	        "Skill Level": "Magnificent"
+	    },
+	    {
+	        "Name": "Demetra",
+	        "Spirit Animal": "Dragonfly",
+	        "Super Power": "Invisibility",
+	        "Skill Level": "Astounding"
+	    },
+	    {
+	        "Name": "Derek",
+	        "Spirit Animal": "Wolf",
+	        "Super Power": "Teleportation",
+	        "Skill Level": "Marvelous"
+	    },
+	    {
+	        "Name": "Deshawn",
+	        "Spirit Animal": "Eagle",
+	        "Super Power": "Super Strength",
+	        "Skill Level": "Incredible"
+	    },
+	    {
+	        "Name": "James",
+	        "Spirit Animal": "Lion",
+	        "Super Power": "Mind Reading",
+	        "Skill Level": "Wonderful"
+	    },
+	    {
+	        "Name": "Maria",
+	        "Spirit Animal": "Fox",
+	        "Super Power": "Shape-Shifting",
+	        "Skill Level": "Astonishing"
+	    },
+	    {
+	        "Name": "Marylyn",
+	        "Spirit Animal": "Dolphin",
+	        "Super Power": "Telepathy",
+	        "Skill Level": "Epic"
+	    },
+	    {
+	        "Name": "Nor",
+	        "Spirit Animal": "Butterfly",
+	        "Super Power": "Elemental Control",
+	        "Skill Level": "Fantastic"
+	    },
+	    {
+	        "Name": "Sal",
+	        "Spirit Animal": "Tiger",
+	        "Super Power": "Telekinesis",
+	        "Skill Level": "Phenomenal"
+	    },
+	    {
+	        "Name": "Sammy",
+	        "Spirit Animal": "Bear",
+	        "Super Power": "Time Manipulation",
+	        "Skill Level": "Spectacular"
+	    }
+	]
+
+}
+
+
+
+
+
+
+
+
+
+
+
+#Part 1. Find your name in the classinfo dictionary below. Write code that prints your first name from the classinfo data shown here.  
+
+print(classinfo["all"][8])
+
+
+
+#Part 2. Find your name in the classinfo dictionary below. Write a script that outputs ONE of the following using the classinfo dictionary below. (fill in the blank!):
+
+# Function to find the person's information and format the output
+def get_person_info(name):
+    for person in classinfo["all"]:
+        if person["Name"] == name:
+            return f"My name is {person['Name']} and my spirit animal is {person['Spirit Animal']}."
+    return f"{name} not found in the classinfo data."
+
+# Replace 'desired_name' with the name of the person you want to get information about
+desired_name = "Marylyn"
+output = get_person_info(desired_name)
+print(output)
+
+
+
+#Part 3. Write a script that loops through the entire classinfo dictionary. Have it output the following for every person in class:
+
+# Function to format and output the information for each person
+def output_person_info(person):
+    name = person["Name"]
+    spirit_animal = person["Spirit Animal"]
+    super_power = person["Super Power"]
+    skill_level = person["Skill Level"]
+
+    print(f"My name is {name} and my spirit animal is {spirit_animal}.")
+    print(f"I have the superpower of {super_power} and my skill level is {skill_level}.")
+    print()
+
+# Loop through the list of dictionaries in the "all" key
+for person in classinfo["all"]:
+    output_person_info(person)

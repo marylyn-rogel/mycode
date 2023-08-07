@@ -1,0 +1,16 @@
+import netmiko
+
+
+aristal1 = {
+    'device_type': 'arista_eos',
+    'host': 'sw-1',
+    'username': 'admin'
+    'password': 'alta3',
+}
+
+
+conn=netmiko.ConnectHandler(**arista1)
+
+conn=conn.send_command("show arp")
+
+print(output)
