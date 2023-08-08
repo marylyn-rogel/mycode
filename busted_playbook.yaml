@@ -1,0 +1,15 @@
+---
+- name: Tuesday Challenge
+  hosts: planet express
+  gather_facts: yes #changed from affiramtive to yes
+
+  tasks:
+   - name: creating a file # added a space. there should be a space between the hyphen and word name
+     copy:
+        dest: challenge/challengefile.txt
+        content: "Success!"
+       
+   - name: create a directory
+     file: 
+       dest: challenge
+       state: directory
