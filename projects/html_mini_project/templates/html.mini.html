@@ -3,18 +3,27 @@
     <head>
         <title>My Webpage</title>
         <script>const refreshPage = () => location.reload()</script>       <!--this is JavaScript code, which can be placed in a <script> tag-->
-    </head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+            </head>
 
         <body>
 
-                <h1>My Email List </h1>
-                <div>
+                <h1>Email List </h1>
+                <div class="emailList" >
                 <ul>
-                <li></li>
-                </li></li>
+                <li>randomemail1@example.com</li>
+                <li>user4321@mailservice.net</li>
+                <li>john.doe87@gmail.com</li>
                 <ul>
                 </div>
 
-<button onclick="refreshPage()" style="color: white; background-color:grey">See Changes</button>    <!--this button fires the function defined above-->
+                <div class="inputDiv">
+                <input class="inputBox" placeholder= "enter your email"></input>
+                <button class="addButton">Click to Add</button>
+                </div>
     </body>
 </html>

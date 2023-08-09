@@ -1,0 +1,15 @@
+body {
+background-color: #fcc5c5;
+color: #292626;
+font-size: 24px;
+font-family: 'Roboto', sans-serif;
+}
+
+div
+{
+border: 5px dotted #292626; 
+border-radius: 10px;
+margin: 10px;
+padding: 1px;
+}
+
