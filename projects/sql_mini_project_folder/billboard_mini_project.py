@@ -29,7 +29,7 @@ data = [
     {"Issue date": "April 1", "Song": "Flowers", "Artist(s)": "Miley Cyrus"},
     {"Issue date": "April 8", "Song": "Like Crazy", "Artist(s)": "Jimin"},
     {"Issue date": "April 15", "Song": "Last Night", "Artist(s)": "Morgan Wallen"},
-    {"Issue date": "April 22", "Song": None, "Artist(s)": None},
+    {"Issue date": "April 22", "Song": "Last Night", "Artist(s)": "Morgan Wallen"},
     {"Issue date": "April 29", "Song": "Kill Bill", "Artist(s)": "SZA"},
     {"Issue date": "May 6", "Song": "Last Night", "Artist(s)": "Morgan Wallen"},
     {"Issue date": "May 13", "Song": "Last Night", "Artist(s)": "Morgan Wallen"},
@@ -77,38 +77,35 @@ for result in results:
 
 
 
+#-------------------Table TWO -----------------------
 
-
-
-
-# Query the data to calculate weeks at #1 for each song
-query = '''
-    SELECT artist, song, COUNT(*) as weeks_at_1
-    FROM billboard_data
-    WHERE song IS NOT NULL
-    GROUP BY artist, song
-    ORDER BY artist, song
-'''
-
-# Execute the query and fetch the results
-cursor.execute(query)
-results = cursor.fetchall()
-
-# Create a table named 'top_songs' with columns: song, artist, weeks_at_1
-cursor.execute('''CREATE TABLE IF NOT EXISTS top_songs (
+# Create a table named 'weeks_at_number_one' with columns: song, artist, weeks_at_1
+cursor.execute('''CREATE TABLE IF NOT EXISTS weeks_at_number_one (
                     id INTEGER PRIMARY KEY,
                     song TEXT,
                     artist TEXT,
                     weeks_at_1 INTEGER
                 )''')
 
-# Insert results into the 'top_songs' table
-for result in results:
-    artist = result[0]
-    song = result[1]
-    weeks_at_1 = result[2]
-    cursor.execute('INSERT INTO top_songs (song, artist, weeks_at_1) VALUES (?, ?, ?)',
+# Calculate the number of weeks at number one for each song and insert into the table
+song_counts = {}
+for entry in data:
+    song_key = (entry['Song'], entry['Artist(s)'])
+    if song_key not in song_counts:
+        song_counts[song_key] = 0
+    song_counts[song_key] += 1
+
+for (song, artist), weeks_at_1 in song_counts.items():
+    cursor.execute('INSERT INTO weeks_at_number_one (song, artist, weeks_at_1) VALUES (?, ?, ?)',
                    (song, artist, weeks_at_1))
+
+
+
+
+
+
+
+
 
 # Commit changes and close the connection
 conn.commit()
